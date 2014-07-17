@@ -1,0 +1,39 @@
+<ParaConfig>
+  <totalElm value="N"/>
+  <totalLen value="M"/>
+  <element name="systemTime" type="complexType" unit="" length="48" downChannel="2" showType="table" formate="" operation="" opObject="" valueRangeUp="" valueRangeDown="" alertRangeUp="" alertRangeDown="" samplingRate="">
+    <subElm name="date"  type="Date" length="32" formate="YYYY-MM-DD hh:mm:ss"/>
+    <subElm name="millisecond" type="Integer" length="16"/>
+  </element>
+  <element name="para2" type="Integer" length="8" downChannel="2" showType="table"/>
+  <element name="para3" type="Integer" length="16" downChannel="2" showType="table"/>
+  <element name="para4" type="Date" length="32" downChannel="2" showType="table" formate="YYYY-MM-DD hh:mm:ss"/>
+  <element name="para5" type="Hexadecimal" length="8" downChannel="2" showType="table"/>
+  <element name="para6" type="Float" unit="℃" length="8" downChannel="2" showType="table,curve" operation="formula" opObject="formula1"/>
+  <element name="para7" type="Float" unit="安培" length="8" downChannel="2" showType="table，curve" operation="formula" opObject="formula2" valueRangeUp="3" valueRangeDown="0" alertRangeUp="3" alertRangeDown="0"/>
+  <element name="para13" type="Float" unit="℃" length="8" downChannel="2" showType="table，curve" operation="table" opObject="tableName1" valueRangeUp="148" valueRangeDown="-41"/>
+  <element name="para19" type="complexType" length="16" downChannel="2" showType="table,curve">
+    <subElm name="sign"  type="String" length="3" operation="enumeration" opObject="enumName2"/>
+    <subElm name="data" type="Float" length="13" operation="formula" opObject="formula3" valueRangeUp="8" valueRangeDown="0.001" alertRangeUp="8" alertRangeDown="0.001"/>
+  </element>
+  <element name="para20" type="Hexadecimal" length="8" downChannel="2" showType="table" operation="enumeration" opObject="enumName1" valueRangeUp="FFH" valueRangeDown="0H"/>
+  
+  
+  <enum name="enumName1">
+    <pair key="C3H" value="上电"/>
+    <pair key="A5h" value="下电"/>
+    <pair key="other" value="不控制"/>
+  </enum>
+  
+  <enum name="enumName2">
+    <pair key="3" value="+"/>
+    <pair key="0" value="-"/>
+  </enum>
+  
+  <table name="tableName1" path="/home/user/" filename="tableName.txt"/>
+  <table name="tableName2" path="/home/user/program" filename="tableName2.txt"/>
+  
+  <formula name="formula1" value="Y=X×5/FFH"/>
+  <formula name="formula2" value="Y=X×5/FFH"/>
+  <formula name="formula3" value="Y=HEX2DEC(X)/1000"/>
+</ParaConfig>
